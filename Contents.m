@@ -6,3 +6,5 @@
 %   mat2cb             - Returns lower and upper limits on confidence bounds of data matrix
 %   NEO                - Returns the nonlinear energy operator (NEO) for signal X
 %   SNEO               - Returns the smoothed nonlinear energy operator (SNEO) for signal X
+%   triggered_average  - Computes triggered average from samples in vector x
+
