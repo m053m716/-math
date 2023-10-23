@@ -1,4 +1,4 @@
-function [A, X, triggers] = triggered_average(triggers, x, n_pre, n_post, rectify, do_smooth, align_peaks)
+function [A, X, triggers,vec] = triggered_average(triggers, x, n_pre, n_post, rectify, do_smooth, align_peaks)
 %TRIGGERED_AVERAGE  Computes triggered average from samples in vector x
 %
 % Syntax:
@@ -21,24 +21,14 @@ function [A, X, triggers] = triggered_average(triggers, x, n_pre, n_post, rectif
 %
 % See also: Contents
 
-if nargin < 3
-    n_pre = 40;  % 10-ms at 4kHz
-end
-
-if nargin < 4
-    n_post =  60; % 15-ms at 4kHz
-end
-
-if nargin < 5
-    rectify = false; 
-end
-
-if nargin < 6
-    do_smooth = false; 
-end
-
-if nargin < 7
-    align_peaks = false; 
+arguments
+    triggers double {mustBeVector}
+    x double {mustBeVector}
+    n_pre (1,1) double = 20;
+    n_post (1,1) double = 80;
+    rectify (1,1) logical = false;
+    do_smooth (1,1) logical = false;
+    align_peaks (1,1) logical = false;
 end
 
 vec = -n_pre : n_post;
